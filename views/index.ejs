@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+<div class="block1">
+<a href="/btc.getInfo">btc.info</a>
+<p><a href="/btc.TransHistory">btc.TransHistory</a></p>
+<p><a href="/btc.TradeHistory">btc.TradeHistory</a></p>
+<p><a href="/btc.OrderList">btc.OrderList</a></p>
+</div>
+<div class="block2">
+<form method="post">
+<label>stop loss</label>
+<input type="text" name="in1"/>
+<p>
+<label>take profit</label>
+<input type="text" name="in2" />
+</p>
+<input type="hidden" name="in0"  value="start" />
+<button type="submit">Старт</button>
+</form>
+<form method="post">
+<input type="hidden" name = "in0" value="stop" />
+<button type="submit">Стоп</button>
+</form>
+</div>
+
+  </body>
+</html>
