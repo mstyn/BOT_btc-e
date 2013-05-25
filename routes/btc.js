@@ -42,8 +42,8 @@ exports.Ticker = function (){
 
 exports.Trades = function (){
   https.get({host:'btc-e.com', path:'/api/2/btc_usd/trades'}, function(res) {
-  console.log("statusCode: ", res.statusCode);
-  console.log("headers: ", res.headers);
+//  console.log("statusCode: ", res.statusCode);
+//  console.log("headers: ", res.headers);
 
   res.on('data', function(d) {
     process.stdout.write(d);

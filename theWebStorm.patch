@@ -1,0 +1,17 @@
+Index: app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/**\n * Module dependencies.\n */\n\nvar express = require('express')\n  , routes = require('./routes')\n  , user = require('./routes/user')\n  , btc = require('./routes/btc')\n  , http = require('http')\n  , path = require('path');\n\n\nvar app = express();\nvar nonce = 25;\n// all environments\napp.set('port', process.env.PORT || 3000);\napp.set('views', __dirname + '/views');\napp.set('view engine', 'ejs');\napp.use(express.favicon());\napp.use(express.logger('dev'));\napp.use(express.bodyParser());\napp.use(express.methodOverride());\n  app.use(express.cookieParser('your secret here'));\n  app.use(express.session());\napp.use(app.router);\n  app.use(require('stylus').middleware(__dirname + '/public'));\napp.use(express.static(path.join(__dirname, 'public')));\n\n// development only\nif ('development' == app.get('env')) {\n  app.use(express.errorHandler());\n}\n\nvar i = 0;\nvar tmr = '';\nvar ST = 0;\nvar TP = 0;\n\nfunction tm(){\n   console.log(i++);\n   btc.Ticker();\n   btc.Trades();\n}\n\n\nfunction getTrades (t){\n  switch (t){\n    case 'start':   \n       console.log(t+' ST: '+ST+' TP: '+ TP);\n       if(tmr !==''){\n          clearInterval(tmr);\n       }\n                  \n       tmr = setInterval(function(){\n         tm();\n  // if (i>6){clearInterval(tmr);}\n     },3000);\n       break;\n    case 'stop':\n       console.log(t);\n       clearInterval(tmr);\n       break;\n   }\n}\n\napp.get('/', routes.index);\napp.get('/users', user.list);\napp.get('/btc.:op', btc.info);\napp.post('/', function(req, res){\n   //console.log(req.body.in0);\n   if (req.body.in1){ST = parseFloat(req.body.in1);}\n   if (req.body.in2){TP = parseFloat(req.body.in2);}\n   getTrades(req.body.in0);\n   res.redirect('/');\n});\n\nhttp.createServer(app).listen(app.get('port'), function(){\nnonce++;\n  console.log('Express server listening on port ' + app.get('port')+' /nonce++: '+nonce);\n\n});
+===================================================================
+--- app.js	(revision b1271d1ba3fa9fba975295ee3a60e08e4dcd76be)
++++ app.js	(revision )
+@@ -1,5 +1,5 @@
+ /**
+- * Module dependencies.
++ * Module   dependencies.
+  */
+ 
+ var express = require('express')
+\ No newline at end of file
