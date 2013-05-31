@@ -54,7 +54,7 @@ function getTrades (t){
        tmr = setInterval(function(){
          tm();
   // if (i>6){clearInterval(tmr);}
-     },3000);
+     },1000);
        break;
     case 'stop':
        console.log(t);
