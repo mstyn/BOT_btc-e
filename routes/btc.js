@@ -2,7 +2,7 @@ var https = require('https');
 var querystring = require('querystring');
 var crypto = require('crypto');
 var fs = require('fs');
-var db = require('models');
+var db = require('./models');
 
 var nonce = 0;
 var vrs = {nonce: 0};
