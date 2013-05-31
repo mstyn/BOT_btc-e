@@ -2,6 +2,7 @@ var https = require('https');
 var querystring = require('querystring');
 var crypto = require('crypto');
 var fs = require('fs');
+var db = require('models');
 
 var nonce = 0;
 var vrs = {nonce: 0};
@@ -30,7 +31,10 @@ exports.Ticker = function (){
   //console.log("headers: ", res.headers);
 
   res.on('data', function(d) {
-    process.stdout.write(d);
+      console.log('************ TickerSchema *************');
+      var jd = (JSON.parse(d));
+//      var NTicker = new db.Ticker(jd.ticker);
+    process.stdout.write(jd);
   });
 
 }).on('error', function(e) {
