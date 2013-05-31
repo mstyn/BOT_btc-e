@@ -34,8 +34,10 @@ exports.Ticker = function (){
       console.log('************ TickerSchema *************');
       var jd = (JSON.parse(d));
 //      var NTicker = new db.Ticker(jd.ticker);
-    process.stdout.write(jd);
+//    process.stdout.write(jd);
+      console.log(jd);
   });
+
 
 }).on('error', function(e) {
   console.error(e);
