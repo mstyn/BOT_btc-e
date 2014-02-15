@@ -64,8 +64,8 @@ exports.Trades = function (){
 exports.info = function (req, res) {
 
 // API settings
-    var key = '5DJAWZNH-BE4IB96V-0FDAMXMX-ERFWL3YG-59OWUNGV'; // your API-key
-    var secret = '32b08ed5aa235473ec69658e7cc9632f9d1247edbc85dc2c58f1dfc8e6595638'; // your Secret-key
+    var key = '3JAWZNH-BE4IB96V-0FDAMXMX-ERFWL3YG-59OWUNGV'; // your API-key
+    var secret = '4b08ed5aa235473ec69658e7cc9632f9d1247edbc85dc2c58f1dfc8e6595638'; // your Secret-key
 
     var post_data = querystring.stringify({
         'method' : req.params.op,
